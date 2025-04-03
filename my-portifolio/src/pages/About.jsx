@@ -39,7 +39,7 @@ const AnimationExample = () => {
           transition={{ duration: animate ? 1 : 0.2 }}
         >
           {buttonClicked ? (
-            <Link to="/" className="text-blue-500 hover:text-blue-700">
+            <Link to="/home" className="text-blue-500 hover:text-blue-700">
               Ir para a Home
             </Link>
           ) : (
