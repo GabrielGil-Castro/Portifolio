@@ -1,27 +1,19 @@
-import { useState } from 'react'
 import './App.css'
-import About from './pages/About'
-import Contact from './pages/Contact'
-import Home from './pages/Home'
-import Projects from './pages/Projects'
 import Navbar from './components/Navbar'
-import { Route, Routes } from 'react-router-dom'
+import Hero from './pages/Hero' // Renomeie Home para Hero
+import About from './pages/About'
+import Projects from './pages/Projects'
+import Contact from './pages/Contact'
 
 function App() {
-
   return (
-    <>
-      <h1 class='text-3xl font-bold underline'>
-        My Portifolio
-      </h1>
+    <div className="App">
       <Navbar />
-      <Routes>
-        <Route path='/' element={<About />} />
-        <Route path='/home' element={<Home />} />
-        <Route path='/contact' element={<Contact />} />
-        <Route path='/projects' element={<Projects />} />
-      </Routes>
-    </>
+      <Hero />     {/* Seção Home/Hero */}
+      <About />    {/* Seção Sobre */}
+      <Projects /> {/* Seção Projetos */}
+      <Contact />  {/* Seção Contato */}
+    </div>
   )
 }
 
