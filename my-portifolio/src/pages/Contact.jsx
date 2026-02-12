@@ -154,7 +154,7 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-slate-700/20 rounded-2xl p-8 border border-slate-600/30">
+          <div className="bg-slate-700/20 rounded-2xl p-8 border border-slate-600/20">
             <form onSubmit={handleSubmit} className="space-y-6">
               
               {/* Name & Email Row */}

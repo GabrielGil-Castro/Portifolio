@@ -19,7 +19,7 @@ const Hero = () => {
             <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-zinc-800 to-gray-950 text-transparent bg-clip-text">
               Gabriel Gil
             </h1>
-            <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-blue-800 to-gray-950 bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-cyan-600 to-gray-800 bg-clip-text text-transparent">
               Desenvolvedor Full Stack
             </h2>
           </div>
@@ -32,10 +32,10 @@ const Hero = () => {
           
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button className="bg-gradient-to-r from-slate-800 to-teal-950 hover:from-blue-600 hover:to-cyan-600 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+            <button className="bg-gradient-to-r from-slate-800 to-teal-950 hover:from-blue-500 hover:to-cyan-600 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
               Ver Projetos
             </button>
-            <button className="border border-slate-600 text-slate-900 hover:text-white hover:border-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:bg-slate-800">
+            <button className="border border-slate-600 text-slate-900 hover:text-white hover:border-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:bg-cyan-600">
               Baixar CV
             </button>
           </div>
