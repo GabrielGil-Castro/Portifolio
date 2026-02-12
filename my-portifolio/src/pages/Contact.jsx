@@ -76,7 +76,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contato" className="py-20 bg-slate-800 relative overflow-hidden">
+    <section id="contato" className="py-20 bg-gradient-to-tr from-slate-100 via-slate-200 to-cyan-100 relative overflow-hidden">
       
       {/* Background Effects */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
@@ -86,13 +86,13 @@ const Contact = () => {
         
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Entre em <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Contato</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-cyan-900 mb-4">
+            Entre em <span className="bg-gradient-to-r from-blue-400 to-cyan-600 bg-clip-text text-transparent">Contato</span>
           </h2>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+          <p className="text-slate-800/80 text-lg max-w-2xl mx-auto">
             Tem um projeto em mente? Vamos conversar sobre como posso ajudar a transformar suas ideias em realidade.
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto rounded-full mt-4"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-cyan-400 mx-auto rounded-full mt-4"></div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
@@ -100,10 +100,10 @@ const Contact = () => {
           {/* Contact Info */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-semibold text-white mb-6">
+              <h3 className="text-2xl font-semibold text-slate-800/80 mb-6">
                 Vamos trabalhar juntos!
               </h3>
-              <p className="text-slate-300 text-lg leading-relaxed mb-8">
+              <p className="text-slate-800/80 text-lg leading-relaxed mb-8">
                 Estou sempre aberto a discutir novas oportunidades, projetos interessantes 
                 ou apenas bater um papo sobre tecnologia. Não hesite em entrar em contato!
               </p>
@@ -113,20 +113,20 @@ const Contact = () => {
             <div className="space-y-6">
               {contactInfo.map((contact, index) => (
                 <div key={index} className="flex items-center space-x-4 p-4 rounded-lg bg-slate-700/30 hover:bg-slate-700/50 transition-colors duration-300">
-                  <div className="text-blue-400 flex-shrink-0">
+                  <div className="text-cyan-400 flex-shrink-0">
                     {contact.icon}
                   </div>
                   <div>
-                    <h4 className="text-white font-semibold">{contact.title}</h4>
+                    <h4 className="text-slate-800/80 font-semibold">{contact.title}</h4>
                     {contact.link ? (
                       <a 
                         href={contact.link}
-                        className="text-slate-400 hover:text-blue-400 transition-colors"
+                        className="text-slate-700 hover:text-blue-400 transition-colors"
                       >
                         {contact.info}
                       </a>
                     ) : (
-                      <p className="text-slate-400">{contact.info}</p>
+                      <p className="text-slate-700">{contact.info}</p>
                     )}
                   </div>
                 </div>
@@ -135,7 +135,7 @@ const Contact = () => {
 
             {/* Social Links */}
             <div className="pt-8">
-              <h4 className="text-white font-semibold mb-4">Me siga nas redes:</h4>
+              <h4 className="text-slate-800/80 font-semibold mb-4">Me siga nas redes:</h4>
               <div className="flex space-x-4">
                 {socialLinks.map((social, index) => (
                   <a
@@ -160,7 +160,7 @@ const Contact = () => {
               {/* Name & Email Row */}
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-white font-medium mb-2">
+                  <label htmlFor="name" className="block text-slate-800/80 font-medium mb-2">
                     Nome *
                   </label>
                   <input
@@ -170,12 +170,12 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-slate-800/50 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
+                    className="w-full px-4 py-3 bg-slate-800/20 border border-slate-600 rounded-lg text-slate-800/80 placeholder-slate-200 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
                     placeholder="Seu nome"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-white font-medium mb-2">
+                  <label htmlFor="email" className="block text-slate-800/80 font-medium mb-2">
                     Email *
                   </label>
                   <input
@@ -185,7 +185,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-slate-800/50 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
+                    className="w-full px-4 py-3 bg-slate-800/20 border border-slate-600 rounded-lg text-white placeholder-slate-200 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
                     placeholder="seu@email.com"
                   />
                 </div>
@@ -193,7 +193,7 @@ const Contact = () => {
 
               {/* Subject */}
               <div>
-                <label htmlFor="subject" className="block text-white font-medium mb-2">
+                <label htmlFor="subject" className="block text-slate-800/80 font-medium mb-2">
                   Assunto *
                 </label>
                 <input
@@ -203,14 +203,14 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-slate-800/50 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
+                  className="w-full px-4 py-3 bg-slate-800/20 border border-slate-600 rounded-lg text-slate-800/80 placeholder-slate-200 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
                   placeholder="Assunto da mensagem"
                 />
               </div>
 
               {/* Message */}
               <div>
-                <label htmlFor="message" className="block text-white font-medium mb-2">
+                <label htmlFor="message" className="block text-slate-800/80 font-medium mb-2">
                   Mensagem *
                 </label>
                 <textarea
@@ -220,7 +220,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 bg-slate-800/50 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors resize-none"
+                  className="w-full px-4 py-3 bg-slate-800/20 border border-slate-600 rounded-lg text-slate-800/80 placeholder-slate-200 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors resize-none"
                   placeholder="Conte-me sobre seu projeto ou como posso ajudar..."
                 />
               </div>
@@ -229,11 +229,11 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 disabled:from-slate-600 disabled:to-slate-600 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 disabled:scale-100 shadow-lg hover:shadow-xl disabled:shadow-none flex items-center justify-center gap-2"
+                className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-purple-500/80 disabled:from-slate-600 disabled:to-slate-600 text-slate-800/80 px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 disabled:scale-100 shadow-lg hover:shadow-xl disabled:shadow-none flex items-center justify-center gap-2"
               >
                 {isSubmitting ? (
                   <>
-                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                    <div className="w-5 h-5 border-2 border-slate-800/80/30 border-t-slate-800/80 rounded-full animate-spin"></div>
                     Enviando...
                   </>
                 ) : (
@@ -264,17 +264,17 @@ const Contact = () => {
 
         {/* Bottom CTA */}
         <div className="text-center mt-16 pt-16 border-t border-slate-700">
-          <h3 className="text-2xl font-semibold text-white mb-4">
+          <h3 className="text-2xl font-semibold text-slate-800/80 mb-4">
             Pronto para começar seu projeto?
           </h3>
-          <p className="text-slate-400 mb-6 max-w-2xl mx-auto">
+          <p className="text-slate-800/80 mb-6 max-w-2xl mx-auto">
             Seja um site, aplicativo ou solução personalizada, estou aqui para ajudar 
             a transformar suas ideias em realidade digital.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="mailto:gabriel.gil@exemplo.com"
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
             >
               <Mail size={18} />
               Enviar Email
@@ -282,7 +282,7 @@ const Contact = () => {
             <a
               href="/cv-gabriel-gil.pdf"
               download="Gabriel_Gil_CV.pdf"
-              className="inline-flex items-center gap-2 border border-slate-400 text-slate-300 hover:text-white hover:border-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-slate-700"
+              className="inline-flex items-center gap-2 border border-slate-600 text-slate-800/70 hover:text-white hover:border-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-slate-700"
             >
               Baixar CV
             </a>
