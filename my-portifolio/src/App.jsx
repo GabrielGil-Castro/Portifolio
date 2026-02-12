@@ -10,8 +10,8 @@ function App() {
     <div className="App">
       <Navbar />
       <Hero />     {/* Seção Home/Hero */}
-      <About />    {/* Seção Sobre */}
       <Projects /> {/* Seção Projetos */}
+      <About />    {/* Seção Sobre */}
       <Contact />  {/* Seção Contato */}
     </div>
   )

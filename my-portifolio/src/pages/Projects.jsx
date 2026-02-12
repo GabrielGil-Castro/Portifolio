@@ -82,20 +82,17 @@ const Projects = () => {
   const featuredProjects = projects.filter(project => project.featured);
 
   return (
-    <section id="projetos" className="py-20 bg-slate-900 relative overflow-hidden">
+    <section id="projetos" className="py-20 bg-gradient-to-tr from-slate-100 via-slate-200 to-cyan-100 relative overflow-hidden">
       
-      {/* Background Effects */}
-      <div className="absolute top-1/4 left-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
-      
+      {/* Background Effects */}      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Meus <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Projetos</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-cyan-950 mb-4">
+            Meus <span className="bg-gradient-to-r from-blue-400 to-cyan-600 bg-clip-text text-transparent">Projetos</span>
           </h2>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+          <p className="text-slate-600 text-lg max-w-2xl mx-auto">
             Alguns dos projetos que desenvolvi, aplicando diferentes tecnologias e soluções inovadoras
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto rounded-full mt-4"></div>
@@ -103,10 +100,10 @@ const Projects = () => {
 
         {/* Featured Projects */}
         <div className="mb-16">
-          <h3 className="text-2xl font-semibold text-white mb-8 text-center">Projetos em Destaque</h3>
+          <h3 className="text-2xl font-semibold text-slate-700 mb-8 text-center">Projetos em Destaque</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredProjects.map((project) => (
-              <div key={project.id} className="group relative bg-slate-800/50 rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300 border border-slate-700 hover:border-blue-500/50">
+              <div key={project.id} className="group relative bg-slate-600/60 rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300 border border-slate-700 hover:border-blue-500/50">
                 
                 {/* Project Image */}
                 <div className="relative h-48 overflow-hidden">
@@ -119,7 +116,7 @@ const Projects = () => {
                   
                   {/* Featured Badge */}
                   <div className="absolute top-4 left-4">
-                    <span className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                    <span className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
                       Destaque
                     </span>
                   </div>
@@ -130,7 +127,7 @@ const Projects = () => {
                   <h4 className="text-xl font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors">
                     {project.title}
                   </h4>
-                  <p className="text-slate-400 text-sm mb-4 line-clamp-2">
+                  <p className="text-slate-100 text-sm mb-4 line-clamp-2">
                     {project.description}
                   </p>
 
@@ -180,8 +177,8 @@ const Projects = () => {
               onClick={() => setActiveFilter(filter)}
               className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
                 activeFilter === filter
-                  ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg'
-                  : 'bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white'
+                  ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg'
+                  : 'bg-slate-800 text-slate-300 hover:bg-slate-700/70 hover:text-white'
               }`}
             >
               {filter}
@@ -192,7 +189,7 @@ const Projects = () => {
         {/* All Projects Grid */}
         <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
           {filteredProjects.map((project) => (
-            <div key={project.id} className="group bg-slate-800/30 rounded-xl overflow-hidden hover:bg-slate-800/50 transition-all duration-300 border border-slate-700/50 hover:border-slate-600">
+            <div key={project.id} className="group  bg-slate-600/60 rounded-xl overflow-hidden hover:bg-slate-800/50 transition-all duration-300 border border-slate-700/50 hover:border-slate-600">
               
               {/* Project Image */}
               <div className="relative h-40 overflow-hidden">
@@ -209,7 +206,7 @@ const Projects = () => {
                 <h4 className="text-lg font-semibold text-white mb-2">
                   {project.title}
                 </h4>
-                <p className="text-slate-400 text-sm mb-3 line-clamp-2">
+                <p className="text-slate-100 text-sm mb-3 line-clamp-2">
                   {project.description}
                 </p>
 
@@ -234,7 +231,7 @@ const Projects = () => {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-2 bg-blue-600/80 hover:bg-blue-600 text-white py-2 rounded text-sm font-medium transition-colors"
+                      className="flex-1 flex items-center justify-center gap-2 bg-blue-500/60 hover:bg-blue-400 text-white py-2 rounded text-sm font-medium transition-colors"
                     >
                       <ExternalLink size={14} />
                       Ver
@@ -244,7 +241,7 @@ const Projects = () => {
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 flex items-center justify-center gap-2 border border-slate-600 hover:border-slate-500 text-slate-300 hover:text-white py-2 rounded text-sm font-medium transition-all"
+                    className="flex-1 flex items-center justify-center gap-2 border border-cyan-600 hover:border-slate-500 text-slate-200 hover:text-white py-2 rounded text-sm font-medium transition-all"
                   >
                     <Github size={14} />
                     Código
@@ -257,12 +254,12 @@ const Projects = () => {
 
         {/* Call to Action */}
         <div className="text-center mt-16">
-          <p className="text-slate-400 mb-6">
+          <p className="text-slate-800/70 mb-6">
             Interessado em ver mais projetos ou colaborar em algo novo?
           </p>
           <a
             href="#contato"
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-purple-600 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
           >
             Vamos Conversar
           </a>

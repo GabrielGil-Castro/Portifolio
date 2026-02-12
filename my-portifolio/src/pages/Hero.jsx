@@ -3,7 +3,7 @@ import { ChevronDown, Github, Linkedin, Mail } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center relative overflow-hidden">
+    <section id="home" className="min-h-screen bg-gradient-to-br from-slate-100 via-slate-200 to-cyan-100 flex items-center justify-center relative overflow-hidden">
       
       {/* Background Effects */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-purple-900/20"></div>
@@ -15,27 +15,27 @@ const Hero = () => {
           
           {/* Greeting */}
           <div className="space-y-2">
-            <p className="text-blue-400 text-lg font-medium">Olá, eu sou</p>
-            <h1 className="text-5xl md:text-7xl font-bold text-white">
+            <p className="text-zinc-800-400 text-lg font-medium">Olá, eu sou</p>
+            <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-zinc-800 to-gray-950 text-transparent bg-clip-text">
               Gabriel Gil
             </h1>
-            <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-blue-800 to-gray-950 bg-clip-text text-transparent">
               Desenvolvedor Full Stack
             </h2>
           </div>
           
           {/* Description */}
-          <p className="text-slate-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+          <p className="text-slate-800 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
             Apaixonado por criar experiências digitais incríveis e soluções inovadoras. 
             Especializado em React, Node.js e tecnologias modernas de desenvolvimento web.
           </p>
           
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+            <button className="bg-gradient-to-r from-slate-800 to-teal-950 hover:from-blue-600 hover:to-cyan-600 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
               Ver Projetos
             </button>
-            <button className="border border-slate-400 text-slate-300 hover:text-white hover:border-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:bg-slate-800">
+            <button className="border border-slate-600 text-slate-900 hover:text-white hover:border-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:bg-slate-800">
               Baixar CV
             </button>
           </div>

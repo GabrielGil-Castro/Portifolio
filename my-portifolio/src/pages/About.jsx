@@ -44,7 +44,7 @@ const About = () => {
   ];
 
   return (
-    <section id="sobre" className="py-20 bg-slate-800 relative overflow-hidden">
+    <section id="sobre" className="py-20 bg-gradient-to-br from-slate-200 via-slate-300 to-slate-400 relative overflow-hidden">
       
       {/* Background Effects */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
@@ -69,9 +69,9 @@ const About = () => {
                 Desenvolvedor apaixonado por tecnologia
               </h3>
               <p className="text-slate-300 text-lg leading-relaxed">
-                Olá! Sou Gabriel Gil, um desenvolvedor full stack com paixão por criar 
-                experiências digitais que fazem a diferença. Com mais de X anos de experiência, 
-                especializo-me em transformar ideias complexas em soluções elegantes e funcionais.
+                Olá! Sou Gabriel Gil, desenvolvedor full stack com paixão por criar 
+                experiências digitais que fazem a diferença. Com anos de experiência
+                                em transformar ideias complexas em soluções elegantes e funcionais.
               </p>
               <p className="text-slate-300 text-lg leading-relaxed">
                 Minha jornada começou com curiosidade sobre como as coisas funcionam na web, 

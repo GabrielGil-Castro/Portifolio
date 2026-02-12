@@ -5,25 +5,19 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   
   return (
-    <nav className="fixed top-0 w-full z-50 bg-slate-900/80 backdrop-blur-lg border-b border-slate-800">
+    <nav className="fixed top-0 w-full z-50 bg-gradient-to-bl from-cyan-200 via-slate-200 to-slate-300 backdrop-blur-lg border-b border-cyan-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Gabriel Gil de Castro {/* ← MUDE AQUI */}
-            </h1>
-          </div>
+
           
           {/* Menu Desktop */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              {['Home', 'Sobre', 'Projetos', 'Contato'].map((item) => (
+              {['Home','Projetos', 'Sobre', 'Contato'].map((item) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
-                  className="text-slate-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 hover:bg-slate-800"
+                  className="text-slate-800 border-e-amber-950 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 hover:bg-slate-800"
                 >
                   {item}
                 </a>
@@ -35,7 +29,7 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-slate-400 hover:text-white p-2"
+              className="text-slate-100 hover:text-white p-2"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -50,7 +44,7 @@ const Navbar = () => {
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
-                  className="text-slate-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                  className="text-slate-100 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                   onClick={() => setIsOpen(false)}
                 >
                   {item}

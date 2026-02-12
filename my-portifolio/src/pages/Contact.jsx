@@ -15,19 +15,13 @@ const Contact = () => {
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email",
-      info: "gabriel.gil@exemplo.com",
+      info: "gildecastro.g@gmail.com",
       link: "mailto:gabriel.gil@exemplo.com"
-    },
-    {
-      icon: <Phone className="w-6 h-6" />,
-      title: "Telefone",
-      info: "+55 (11) 99999-9999",
-      link: "tel:+5511999999999"
     },
     {
       icon: <MapPin className="w-6 h-6" />,
       title: "Localização",
-      info: "São Paulo, SP - Brasil",
+      info: "RJ - Brasil",
       link: null
     }
   ];
@@ -36,20 +30,14 @@ const Contact = () => {
     {
       icon: <Github className="w-6 h-6" />,
       name: "GitHub",
-      url: "https://github.com/seugithub",
+      url: "https://github.com/GabrielGil-Castro",
       color: "hover:text-gray-400"
     },
     {
       icon: <Linkedin className="w-6 h-6" />,
       name: "LinkedIn", 
-      url: "https://linkedin.com/in/seulinkedin",
+      url: "https://linkedin.com/in/gabriel",
       color: "hover:text-blue-400"
-    },
-    {
-      icon: <Twitter className="w-6 h-6" />,
-      name: "Twitter",
-      url: "https://twitter.com/seutwitter",
-      color: "hover:text-sky-400"
     }
   ];
 
