@@ -1,79 +1,12 @@
 import React, { useState } from 'react';
 import { ExternalLink, Github, Filter, X } from 'lucide-react';
+import { projects } from "../data/projectsData";
+
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('Todos');
 
   const filters = ['Todos', 'Frontend', 'Full Stack', 'Mobile', 'Backend'];
-
-  const projects = [
-    {
-      id: 1,
-      title: "E-commerce Platform",
-      description: "Plataforma completa de e-commerce com painel administrativo, sistema de pagamentos e gerenciamento de estoque.",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=300&fit=crop",
-      technologies: ["React", "Node.js", "PostgreSQL", "Stripe"],
-      category: "Full Stack",
-      liveUrl: "https://projeto-demo.com",
-      githubUrl: "https://github.com/usuario/projeto",
-      featured: true
-    },
-    {
-      id: 2,
-      title: "Task Management App",
-      description: "Aplicativo de gerenciamento de tarefas com funcionalidades de colaboração em tempo real e notificações push.",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=500&h=300&fit=crop",
-      technologies: ["React Native", "Firebase", "Redux"],
-      category: "Mobile",
-      liveUrl: "https://app-demo.com",
-      githubUrl: "https://github.com/usuario/task-app",
-      featured: true
-    },
-    {
-      id: 3,
-      title: "Portfolio Website",
-      description: "Site pessoal responsivo com animações modernas, blog integrado e sistema de contato.",
-      image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=500&h=300&fit=crop",
-      technologies: ["Next.js", "Tailwind CSS", "Framer Motion"],
-      category: "Frontend",
-      liveUrl: "https://portfolio-demo.com",
-      githubUrl: "https://github.com/usuario/portfolio",
-      featured: false
-    },
-    {
-      id: 4,
-      title: "API Rest Blog",
-      description: "API RESTful completa para sistema de blog com autenticação JWT, upload de imagens e sistema de comentários.",
-      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&h=300&fit=crop",
-      technologies: ["Node.js", "Express", "MongoDB", "JWT"],
-      category: "Backend",
-      liveUrl: null,
-      githubUrl: "https://github.com/usuario/blog-api",
-      featured: false
-    },
-    {
-      id: 5,
-      title: "Dashboard Analytics",
-      description: "Dashboard interativo para análise de dados com gráficos dinâmicos e relatórios personalizáveis.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=300&fit=crop",
-      technologies: ["React", "Chart.js", "Material-UI"],
-      category: "Frontend",
-      liveUrl: "https://dashboard-demo.com",
-      githubUrl: "https://github.com/usuario/dashboard",
-      featured: true
-    },
-    {
-      id: 6,
-      title: "Social Media App",
-      description: "Rede social completa com feed em tempo real, chat, stories e sistema de amizades.",
-      image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=500&h=300&fit=crop",
-      technologies: ["React", "Node.js", "Socket.io", "AWS"],
-      category: "Full Stack",
-      liveUrl: "https://social-demo.com",
-      githubUrl: "https://github.com/usuario/social-app",
-      featured: false
-    }
-  ];
 
   const filteredProjects = activeFilter === 'Todos' 
     ? projects 

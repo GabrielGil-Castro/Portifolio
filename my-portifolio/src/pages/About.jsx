@@ -11,7 +11,7 @@ const About = () => {
     {
       category: "Backend", 
       icon: <Database className="w-6 h-6" />,
-      technologies: ["Node.js", "Express", "Python", "PostgreSQL", "MongoDB"]
+      technologies: ["Node.js", "Express", "Python", "PostgreSQL", "MySQL"]
     },
     {
       category: "Mobile",
@@ -21,7 +21,7 @@ const About = () => {
     {
       category: "Ferramentas",
       icon: <Code className="w-6 h-6" />,
-      technologies: ["Git", "Docker", "AWS", "Figma", "VS Code"]
+      technologies: ["Git", "Docker", "Figma", "VS Code"]
     }
   ];
 
