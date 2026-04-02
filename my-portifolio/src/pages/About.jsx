@@ -64,26 +64,27 @@ const About = () => {
           
           {/* Left Side - About Text */}
           <div className="space-y-6">
-            <div className="space-y-4">
-              <h3 className="text-2xl font-semibold text-slate-900/80">
-                Desenvolvedor apaixonado por tecnologia
-              </h3>
-              <p className="text-slate-700 text-lg leading-relaxed">
-                Olá! Sou Gabriel Gil, desenvolvedor full stack com paixão por criar 
-                experiências digitais que fazem a diferença. Com anos de experiência
-                                em transformar ideias complexas em soluções elegantes e funcionais.
-              </p>
-              <p className="text-slate-700 text-lg leading-relaxed">
-                Minha jornada começou com curiosidade sobre como as coisas funcionam na web, 
-                e hoje trabalho com as mais modernas tecnologias para entregar produtos que 
-                impactam positivamente a vida das pessoas.
-              </p>
-              <p className="text-slate-700 text-lg leading-relaxed">
-                Quando não estou codando, você pode me encontrar explorando novas tecnologias, 
-                contribuindo para projetos open source, ou compartilhando conhecimento com a 
-                comunidade dev.
-              </p>
-            </div>
+  <div className="space-y-4">
+    <h3 className="text-2xl font-semibold text-slate-900/80">
+      Desenvolvedor Full Stack
+    </h3>
+    <p className="text-slate-700 text-lg leading-relaxed">
+      Vim da Sociologia e migrei pra tecnologia pois, além da qualidade diferente que o trabalho 
+      com código traz, há possibilidade real de juntar raciocínio analítico com construção prática.
+    </p>
+    <p className="text-slate-700 text-lg leading-relaxed">
+      Minha base veio em projetos reais ainda durante o curso: cliente, regras de negócio, 
+      time e prazo. Errei bastante, aprendi mais ainda — especialmente sobre as etapas que 
+      nenhum tutorial cobre.
+    </p>
+    <p className="text-slate-700 text-lg leading-relaxed">
+      Hoje trabalho com stack fullstack moderna — React, Node.js, Express, MySQL, Docker, 
+      Prisma, TailwindCSS — com foco crescente em backend e arquitetura. Uso IA como 
+      ferramenta de desenvolvimento no dia a dia e acompanho de perto como isso muda o 
+      que se espera de um dev. Atualmente atuo como Auxiliar de TI, curso Engenharia de Software e estou 
+  em busca da primeira oportunidade formal em desenvolvimento.
+    </p>
+  </div>
 
             {/* Qualities */}
             <div className="grid gap-4 mt-8">
@@ -130,34 +131,6 @@ const About = () => {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-
-        {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 pt-16 border-t border-slate-700">
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-cyan-600 bg-clip-text text-transparent">
-              2+
-            </div>
-            <div className="text-slate-700/80 mt-1">Anos de Experiência</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-cyan-600 bg-clip-text text-transparent">
-              15+
-            </div>
-            <div className="text-slate-700/80 mt-1">Projetos Concluídos</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-cyan-600 bg-clip-text text-transparent">
-              50+
-            </div>
-            <div className="text-slate-700/80 mt-1">Commits no GitHub</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-cyan-600 bg-clip-text text-transparent">
-              100%
-            </div>
-            <div className="text-slate-700/80 mt-1">Dedicação</div>
           </div>
         </div>
       </div>
