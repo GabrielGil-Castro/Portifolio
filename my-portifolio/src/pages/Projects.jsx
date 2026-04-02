@@ -3,6 +3,30 @@ import { ExternalLink, Github, Filter, X } from 'lucide-react';
 import { projects } from "../data/projectsData";
 
 
+const ExpandableDescription = ({ description, className = '' }) => {
+  const [expanded, setExpanded] = useState(false);
+  return (
+    <div className={className}>
+      <div className="relative">
+        <p className={`text-slate-100 text-sm leading-relaxed overflow-hidden transition-all duration-300 ${
+          expanded ? 'max-h-40' : 'max-h-10'
+        }`}>
+          {description}
+        </p>
+        {!expanded && (
+          <div className="absolute bottom-0 left-0 right-0 h-6 bg-gradient-to-t from-slate-700 to-transparent pointer-events-none" />
+        )}
+      </div>
+      <button
+        onClick={() => setExpanded(!expanded)}
+        className="text-xs text-cyan-400 font-medium mt-1 hover:underline"
+      >
+        {expanded ? 'Ver menos' : 'Ver mais'}
+      </button>
+    </div>
+  );
+};
+
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('Todos');
 
@@ -60,9 +84,7 @@ const Projects = () => {
                   <h4 className="text-xl font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors">
                     {project.title}
                   </h4>
-                  <p className="text-slate-100 text-sm mb-4 line-clamp-2">
-                    {project.description}
-                  </p>
+                  <ExpandableDescription description={project.description} className="mb-4" />
 
                   {/* Technologies */}
                   <div className="flex flex-wrap gap-2 mb-4">
@@ -139,9 +161,7 @@ const Projects = () => {
                 <h4 className="text-lg font-semibold text-white mb-2">
                   {project.title}
                 </h4>
-                <p className="text-slate-100 text-sm mb-3 line-clamp-2">
-                  {project.description}
-                </p>
+                <ExpandableDescription description={project.description} className="mb-3" />
 
                 {/* Technologies */}
                 <div className="flex flex-wrap gap-1 mb-4">

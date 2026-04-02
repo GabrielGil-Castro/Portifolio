@@ -34,9 +34,11 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button className="bg-gradient-to-r from-slate-800 to-teal-950 hover:from-blue-500 hover:to-cyan-600 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+            <a 
+              href="#projetos"
+              className="bg-gradient-to-r from-slate-800 to-teal-950 hover:from-blue-500 hover:to-cyan-600 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
               Ver Projetos
-            </button>
+            </a>
             <a
               href="/cv/Gabriel-Gil-Castro-CV.pdf"
               download
