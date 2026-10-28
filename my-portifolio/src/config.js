@@ -7,13 +7,16 @@ export const CONTACT = {
   email: 'gildecastro.g@gmail.com',
 }
 
-export const CV_URL = '/cv/Gabriel-Gil-Castro-CV.pdf'
+// Por enquanto o mesmo PDF nos dois idiomas.
+export const CV_URL = {
+  pt: '/cv/Gabriel-Gil-Castro-CV.pdf',
+  en: '/cv/Gabriel-Gil-Castro-CV.pdf',
+}
 
 export const WHATSAPP_NUMBER = '5524999357737'
-export const WHATSAPP_MESSAGE = 'Olá, Gabriel! Vi seu portfólio e gostaria de conversar.'
 
-export const WHATSAPP_URL = WHATSAPP_NUMBER
-  ? `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`
-  : null
+// A mensagem padrão vem do dicionário do idioma ativo.
+export const whatsappUrl = (message) =>
+  WHATSAPP_NUMBER ? `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}` : null
 
 export const PRODUCT_URL = 'https://getverticaltrust.com'

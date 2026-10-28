@@ -1,9 +1,13 @@
 import { useRef, useState } from 'react'
+import useT from '../i18n/context'
 import BrowserFrame from './BrowserFrame'
 
 const pad = (n) => String(n).padStart(2, '0')
 
+// slides: [{ id, src, title, caption, alt }]
 export default function Carousel({ slides, label }) {
+  const { t } = useT()
+  const c = t.carousel
   const [index, setIndex] = useState(0)
   const startX = useRef(null)
   const total = slides.length
@@ -36,7 +40,7 @@ export default function Carousel({ slides, label }) {
     'grid size-12 shrink-0 place-items-center border border-ink text-lg transition-colors hover:bg-ink hover:text-paper'
 
   return (
-    <div role="region" aria-roledescription="carrossel" aria-label={label} tabIndex={0} onKeyDown={onKeyDown}>
+    <div role="region" aria-roledescription={c.roleDescription} aria-label={label} tabIndex={0} onKeyDown={onKeyDown}>
       <div
         className="touch-pan-y overflow-hidden"
         onPointerDown={onPointerDown}
@@ -49,10 +53,10 @@ export default function Carousel({ slides, label }) {
         >
           {slides.map((s, i) => (
             <li
-              key={s.file}
+              key={s.id}
               className="w-full shrink-0"
-              aria-roledescription="slide"
-              aria-label={`${pad(i + 1)} de ${pad(total)}`}
+              aria-roledescription={c.slideRole}
+              aria-label={c.slideOf(pad(i + 1), pad(total))}
               inert={i !== index}
             >
               <BrowserFrame src={s.src} alt={s.alt} title={s.title} />
@@ -62,13 +66,13 @@ export default function Carousel({ slides, label }) {
       </div>
 
       <div className="mt-4 flex items-center justify-between gap-4">
-        <button type="button" onClick={() => go(index - 1)} aria-label="Slide anterior" className={arrowClass}>
+        <button type="button" onClick={() => go(index - 1)} aria-label={c.prev} className={arrowClass}>
           <span aria-hidden="true">←</span>
         </button>
         <p className="font-display text-xl font-bold text-accent">
           {pad(index + 1)} / {pad(total)}
         </p>
-        <button type="button" onClick={() => go(index + 1)} aria-label="Próximo slide" className={arrowClass}>
+        <button type="button" onClick={() => go(index + 1)} aria-label={c.next} className={arrowClass}>
           <span aria-hidden="true">→</span>
         </button>
       </div>
@@ -76,10 +80,10 @@ export default function Carousel({ slides, label }) {
       <div className="mt-2 flex flex-wrap justify-center">
         {slides.map((s, i) => (
           <button
-            key={s.file}
+            key={s.id}
             type="button"
             onClick={() => go(i)}
-            aria-label={`Ir para ${pad(i + 1)}: ${s.title}`}
+            aria-label={c.goTo(pad(i + 1), s.title)}
             aria-current={i === index ? 'true' : undefined}
             className="grid size-11 place-items-center"
           >

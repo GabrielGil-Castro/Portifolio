@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { CONTACT } from '../config'
+import useT from '../i18n/context'
 
 async function copyText(text) {
   try {
@@ -21,6 +22,7 @@ async function copyText(text) {
 // Botão que copia o e-mail e mostra "copiado ✓" por 2s.
 // children recebe (texto, copiado) e decide o layout.
 export default function CopyEmail({ className, children }) {
+  const { t } = useT()
   const [copied, setCopied] = useState(false)
 
   useEffect(() => {
@@ -35,10 +37,10 @@ export default function CopyEmail({ className, children }) {
   }
 
   return (
-    <button type="button" onClick={onClick} title="Copiar e-mail" className={className}>
-      {children(copied ? 'copiado ✓' : CONTACT.email, copied)}
+    <button type="button" onClick={onClick} title={t.copyEmail.title} className={className}>
+      {children(copied ? t.copyEmail.copied : CONTACT.email, copied)}
       <span className="sr-only" aria-live="polite">
-        {copied ? 'E-mail copiado para a área de transferência' : ''}
+        {copied ? t.copyEmail.announce : ''}
       </span>
     </button>
   )

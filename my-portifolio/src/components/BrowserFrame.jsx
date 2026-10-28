@@ -1,8 +1,10 @@
 import { useState } from 'react'
+import useT from '../i18n/context'
 
 // Print dentro de uma moldura de navegador. Sem src (ou se o arquivo não carregar),
 // mostra o placeholder de captura pendente.
 export default function BrowserFrame({ src, alt, title, eager = false, compact = false }) {
+  const { t } = useT()
   // Guarda qual src falhou, para um arquivo novo no mesmo lugar voltar a ser tentado.
   const [failedSrc, setFailedSrc] = useState(null)
   const missing = !src || failedSrc === src
@@ -22,7 +24,7 @@ export default function BrowserFrame({ src, alt, title, eager = false, compact =
           <div
             className={`grid h-full place-items-center p-3 text-center text-muted ${compact ? 'text-[10px]' : 'text-xs sm:text-sm'}`}
           >
-            [ captura pendente — {title} ]
+            {t.browserFrame.pending(title)}
           </div>
         ) : (
           <img

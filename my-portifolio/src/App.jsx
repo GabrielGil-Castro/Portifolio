@@ -6,8 +6,10 @@ import Hero from './sections/Hero'
 import AnchorLedger from './sections/AnchorLedger'
 import OtherProjects from './sections/OtherProjects'
 import AboutContact from './sections/AboutContact'
+import useT from './i18n/context'
 
 function App() {
+  const { t } = useT()
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
@@ -16,7 +18,7 @@ function App() {
         href="#conteudo"
         className="sr-only z-[60] bg-ink px-4 py-3 text-paper focus:not-sr-only focus:fixed focus:top-2 focus:left-2"
       >
-        Pular para o conteúdo
+        {t.skipLink}
       </a>
       <Sidebar menuOpen={menuOpen} onMenuChange={setMenuOpen} />
       <main id="conteudo" className="min-w-0 flex-1 px-4 pt-14 sm:px-8 lg:px-24 lg:pt-0">

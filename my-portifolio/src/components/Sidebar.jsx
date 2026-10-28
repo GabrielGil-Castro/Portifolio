@@ -1,37 +1,33 @@
 import { useEffect, useRef } from 'react'
-import { CONTACT, CV_URL, WHATSAPP_URL } from '../config'
+import { CONTACT, CV_URL, whatsappUrl } from '../config'
 import useScrollSpy from '../hooks/useScrollSpy'
+import useT from '../i18n/context'
 import CopyEmail from './CopyEmail'
 import { DownloadIcon, GitHubIcon, LinkedInIcon, WhatsAppIcon } from './icons'
+import LanguageSwitch from './LanguageSwitch'
 
 const NAV = [
-  { id: 'inicio', n: '01', label: 'Início' },
-  { id: 'anchor', n: '02', label: 'Anchor Ledger', tag: '★ principal' },
-  { group: 'OUTROS PROJETOS' },
-  { id: 'vulpis', n: '03', label: 'Vulpis' },
-  { id: 'rota-brecho', n: '04', label: 'Rota Brechó' },
-  { id: 'contato', n: '05', label: 'Sobre & contato' },
+  { id: 'inicio', n: '01' },
+  { id: 'anchor', n: '02', featured: true },
+  { group: 'otherProjects' },
+  { id: 'vulpis', n: '03' },
+  { id: 'rota-brecho', n: '04' },
+  { id: 'contato', n: '05' },
 ]
 
 const SECTION_IDS = NAV.filter((item) => item.id).map((item) => item.id)
 
-const FOOTER_LINKS = [
-  { label: 'GitHub', href: CONTACT.github, Icon: GitHubIcon, external: true },
-  { label: 'LinkedIn', href: CONTACT.linkedin, Icon: LinkedInIcon, external: true },
-  { label: 'WhatsApp', href: WHATSAPP_URL, Icon: WhatsAppIcon, external: true },
-  { label: 'Baixar CV', href: CV_URL, Icon: DownloadIcon, download: true },
-].filter((link) => link.href)
-
 const FOCUSABLE = 'a[href], button:not([disabled])'
 
 function NavList({ active, onNavigate }) {
+  const { t } = useT()
   return (
-    <nav aria-label="Seções">
+    <nav aria-label={t.sidebar.navLabel}>
       <ul>
         {NAV.map((item) =>
           item.group ? (
             <li key={item.group} className="pt-[clamp(0.5rem,2vh,1.25rem)] pb-1 text-[11px] tracking-[0.25em] text-paper/60">
-              {item.group}
+              {t.sidebar[item.group]}
             </li>
           ) : (
             <li key={item.id}>
@@ -47,9 +43,9 @@ function NavList({ active, onNavigate }) {
                   {item.n}
                 </span>
                 <span className="flex flex-col py-1">
-                  {item.label}
-                  {item.tag && (
-                    <span className="text-[11px] uppercase tracking-wider text-accent-on-dark">{item.tag}</span>
+                  {t.sidebar.nav[item.id]}
+                  {item.featured && (
+                    <span className="text-[11px] uppercase tracking-wider text-accent-on-dark">{t.sidebar.featuredTag}</span>
                   )}
                 </span>
               </a>
@@ -62,24 +58,33 @@ function NavList({ active, onNavigate }) {
 }
 
 function SidebarFooter() {
+  const { t, lang } = useT()
+  const links = [
+    { key: 'github', href: CONTACT.github, Icon: GitHubIcon, external: true },
+    { key: 'linkedin', href: CONTACT.linkedin, Icon: LinkedInIcon, external: true },
+    { key: 'whatsapp', href: whatsappUrl(t.whatsapp.message), Icon: WhatsAppIcon, external: true },
+    { key: 'cv', href: CV_URL[lang], Icon: DownloadIcon, download: true },
+  ].filter((link) => link.href)
+
   return (
-    <div className="space-y-[clamp(0.25rem,1.5vh,1rem)] text-xs">
+    <div className="space-y-[clamp(0.25rem,1.5vh,1rem)] text-xs [@media(max-height:679px)]:space-y-0">
       <p className="flex items-center gap-2">
         <span className="size-2 rounded-full bg-[#4CAF50]" aria-hidden="true" />
-        Aberto a novos projetos
+        {t.sidebar.status}
       </p>
       <CopyEmail className="flex min-h-11 items-center text-left text-paper transition-colors hover:text-accent-on-dark">
         {(text) => <span>{text}</span>}
       </CopyEmail>
+      <LanguageSwitch />
       <ul className="-ml-3 flex">
-        {FOOTER_LINKS.map((link) => (
-          <li key={link.label}>
+        {links.map((link) => (
+          <li key={link.key}>
             <a
               href={link.href}
               {...(link.external && { target: '_blank', rel: 'noopener noreferrer' })}
               {...(link.download && { download: true })}
-              aria-label={link.external ? `${link.label} (abre em nova aba)` : link.label}
-              title={link.label}
+              aria-label={link.external ? `${t.links[link.key]} ${t.common.newTab}` : t.links[link.key]}
+              title={t.links[link.key]}
               className="grid size-11 place-items-center text-paper transition-colors hover:text-accent-on-dark"
             >
               <link.Icon />
@@ -87,12 +92,13 @@ function SidebarFooter() {
           </li>
         ))}
       </ul>
-      <p className="text-paper/60 [@media(max-height:679px)]:hidden">Barra Mansa — RJ · © 2026</p>
+      <p className="text-paper/60 [@media(max-height:679px)]:hidden">{t.sidebar.location}</p>
     </div>
   )
 }
 
 export default function Sidebar({ menuOpen, onMenuChange }) {
+  const { t } = useT()
   const active = useScrollSpy(SECTION_IDS)
   const mobileRef = useRef(null)
   const toggleRef = useRef(null)
@@ -143,11 +149,11 @@ export default function Sidebar({ menuOpen, onMenuChange }) {
     <>
       <aside className="on-dark hidden h-screen w-[300px] shrink-0 flex-col justify-between gap-[clamp(1rem,4vh,2.5rem)] overflow-y-auto bg-sidebar px-8 py-[clamp(1.25rem,4.5vh,2.5rem)] text-paper lg:sticky lg:top-0 lg:flex">
         <div>
-          <a href="#inicio" className="inline-block font-display text-[40px] font-bold leading-none" aria-label="G.G. — voltar ao início">
-            G.G.
+          <a href="#inicio" className="inline-block font-display text-[40px] font-bold leading-none" aria-label={t.sidebar.homeLabel}>
+            {t.sidebar.brand}
           </a>
-          <p className="mt-[clamp(0.5rem,1.8vh,1rem)] text-sm font-medium">Gabriel Gil</p>
-          <p className="text-xs text-paper/60">Desenvolvedor full stack</p>
+          <p className="mt-[clamp(0.5rem,1.8vh,1rem)] text-sm font-medium">{t.sidebar.name}</p>
+          <p className="text-xs text-paper/60">{t.sidebar.role}</p>
           <div className="mt-[clamp(1rem,4.5vh,2.5rem)]">
             <NavList active={active} />
           </div>
@@ -161,9 +167,9 @@ export default function Sidebar({ menuOpen, onMenuChange }) {
             href="#inicio"
             onClick={close}
             className="flex min-h-11 items-center font-display text-2xl font-bold"
-            aria-label="G.G. — voltar ao início"
+            aria-label={t.sidebar.homeLabel}
           >
-            G.G.
+            {t.sidebar.brand}
           </a>
           <button
             ref={toggleRef}
@@ -173,7 +179,7 @@ export default function Sidebar({ menuOpen, onMenuChange }) {
             onClick={() => onMenuChange(!menuOpen)}
             className="min-h-11 min-w-11 border border-paper/40 px-4 text-xs uppercase tracking-[0.2em] transition-colors hover:border-paper"
           >
-            {menuOpen ? 'Fechar' : 'Menu'}
+            {menuOpen ? t.sidebar.menuClose : t.sidebar.menuOpen}
           </button>
         </div>
         {menuOpen && (

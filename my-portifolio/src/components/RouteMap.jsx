@@ -1,3 +1,5 @@
+import useT from '../i18n/context'
+
 const STREETS_X = [20, 65, 110, 155, 200]
 const STREETS_Y = [20, 55, 90, 125]
 const PINS = [
@@ -8,9 +10,11 @@ const PINS = [
 ]
 
 export default function RouteMap() {
+  const { t } = useT()
+  const r = t.projects.rota
   return (
     <svg viewBox="0 0 240 150" className="w-full font-display" role="img" aria-labelledby="route-map-t">
-      <title id="route-map-t">Rota do ponto A ao ponto B passando por brechós no trajeto</title>
+      <title id="route-map-t">{r.mapTitle}</title>
       <g className="stroke-rule" strokeWidth="1">
         {STREETS_X.map((x) => (
           <line key={`x${x}`} x1={x} y1={8} x2={x} y2={137} />
@@ -31,8 +35,8 @@ export default function RouteMap() {
       ))}
       <rect x={15} y={120} width={10} height={10} className="fill-accent" />
       <rect x={195} y={15} width={10} height={10} className="fill-accent" />
-      <text x={8} y={147} fontSize={12} fontWeight={700} className="fill-ink">A</text>
-      <text x={212} y={24} fontSize={12} fontWeight={700} className="fill-ink">B</text>
+      <text x={8} y={147} fontSize={12} fontWeight={700} className="fill-ink">{r.mapStart}</text>
+      <text x={212} y={24} fontSize={12} fontWeight={700} className="fill-ink">{r.mapEnd}</text>
     </svg>
   )
 }
