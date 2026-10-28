@@ -3,8 +3,9 @@ import { useState } from 'react'
 // Print dentro de uma moldura de navegador. Sem src (ou se o arquivo não carregar),
 // mostra o placeholder de captura pendente.
 export default function BrowserFrame({ src, alt, title, eager = false, compact = false }) {
-  const [failed, setFailed] = useState(false)
-  const missing = !src || failed
+  // Guarda qual src falhou, para um arquivo novo no mesmo lugar voltar a ser tentado.
+  const [failedSrc, setFailedSrc] = useState(null)
+  const missing = !src || failedSrc === src
 
   return (
     <div className="border border-ink bg-paper">
@@ -28,9 +29,10 @@ export default function BrowserFrame({ src, alt, title, eager = false, compact =
             src={src}
             alt={alt}
             loading={eager ? 'eager' : 'lazy'}
+            fetchPriority={eager ? 'high' : undefined}
             decoding="async"
             draggable={false}
-            onError={() => setFailed(true)}
+            onError={() => setFailedSrc(src)}
             className="h-full w-full object-cover object-top"
           />
         )}

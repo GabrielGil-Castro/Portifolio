@@ -147,9 +147,6 @@ function Decisions() {
                   <span className="text-accent">→ por quê:</span> {d.why}
                 </p>
               )}
-              <pre className="overflow-x-auto border border-ink bg-code p-4 text-sm">
-                <code>{'// TODO: trecho real colado pelo Gabriel'}</code>
-              </pre>
             </div>
           </div>
         )
