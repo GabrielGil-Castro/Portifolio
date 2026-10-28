@@ -1,1 +1,62 @@
-@import "tailwindcss"
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #F1EDE4;
+  --color-ink: #151513;
+  --color-ink-soft: #34322D;
+  --color-muted: #5B574F;
+  --color-rule: #BDB5A3;
+  --color-sidebar: #0D0D0C;
+  --color-accent: #B3261E;
+  --color-accent-hover: #7E1A15;
+  --color-accent-on-dark: #E0574C;
+  --color-code: #E8E3D7;
+
+  --font-display: "Courier Prime", "Courier New", monospace;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-mono);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  .on-dark :focus-visible {
+    outline-color: var(--color-accent-on-dark);
+  }
+}
+
+.cursor-blink {
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
